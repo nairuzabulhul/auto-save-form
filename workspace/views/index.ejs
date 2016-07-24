@@ -1,0 +1,71 @@
+<% include ./partials/header%>
+
+<form class="contact-form" method="post" ID="form">
+  
+        <div class="row col-md-12">
+                  <div class="col-md-5">
+                    <img src="https://s32.postimg.org/64omj5gf9/chnia.jpg" class="img-responsive" id="sideImage1">
+                  </div>
+
+                  <div class="col-md-5">
+                    <h3>Welcome</h3>
+
+                    <label><b>First Name</b></label>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="First Name" aria-describedby="basic-addon1" id="country" name="firstName" required>
+                    </div>
+
+                    <label><b>Last Name</b></label>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Last Name" aria-describedby="basic-addon1" id="country" name="lastName"required>
+                    </div>
+
+
+                    <label><b>Address 1</b></label>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Address 1" aria-describedby="basic-addon1" id="country" name="address" required>
+                    </div>
+
+                    <!--City/State/ZipCode ROW 1-->
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <label><b>City</b></label>
+                        <input type="text" class="form-control" placeholder="City" name="city">
+                      </div>
+
+                      <div class="col-xs-3">
+                        <label><b>State</b></label>
+                        <input type="text" class="form-control" placeholder="State" name="state">
+                      </div>
+
+                      <div class="col-xs-3">
+                        <label><b>Zip Code</b></label>
+                        <input type="text" class="form-control" placeholder="#####" name="zipcode">
+                      </div>
+                    </div>
+                    <!--END ROW 1-->
+                    
+                    <br>
+                    <br>
+                    <br>
+                    <!--BUTTONS-->
+                    <div class="row col-md-12">
+                      <ul class="list-inline pull-right">
+                        <li>
+                          <button type="button" class="btn btn-default prev-step">Previous</button>
+                        </li>
+                        <li>
+                          <button type="button" class="btn btn-success next-step">Save and Continue</button>
+                        </li>
+                      </ul>
+                    </div>
+                  <!--END BUTTONS-->
+             </div>      
+                    <br>
+                   
+    </div>
+    </form>
+
+
+            
+<% include ./partials/footer%>
