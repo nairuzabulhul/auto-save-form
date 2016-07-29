@@ -1,0 +1,13 @@
+
+
+1- Create a form with hidden input as an id , this later will be used for the Ajax call
+
+2- Convert the form from serialized form to JSON object
+
+4- Create an Ajax call to send the form when it uses POST method
+
+5- update the id value before sending an Ajax call
+
+6- GO to app.js and create get and post routs for the app
+
+7- in the post rout, check for the id of that is coming from Ajax call
