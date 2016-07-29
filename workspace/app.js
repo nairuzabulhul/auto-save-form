@@ -1,14 +1,11 @@
 var express    = require("express"),
     bodyParser = require("body-parser"),
     mongoose   = require("mongoose"),
-    // jsdom = require('jsdom'),
     app = express();
     
 
 //Mongo Settings:
 mongoose.connect("mongodb://localhost/DB4") //database path
-
-// var db4 = mongoose.connect("mongodb://localhost/DB4") //database path
 
 //App settings:
 app.set("view engine","ejs");
@@ -35,7 +32,6 @@ var Form = mongoose.model("Form", formSchema);
 
 //GET
 app.get("/", function(req,res){
-    // var ObjectId = "57977c851beba4e113524b0c";
   res.render("index") //renders the index page
  });
 
@@ -45,12 +41,10 @@ app.get("/", function(req,res){
 app.post('/', function(req, res) {
 
     //Extracting data from the form input
-    var id = req.body.id.trim() === '' ? null : req.body.id; 
-    // var id = req.body.id.trim();
+    // trim is use to get rid of the extra spaces:
+    var id = req.body.id.trim();
     
     
-
-
     var formData = {
         'firstName': req.body.firstName,
         'lastName': req.body.lastName,
@@ -60,13 +54,17 @@ app.post('/', function(req, res) {
         'zipcode': req.body.zipcode,
     };
 
-    if (id === null ) {
+
+    //if the "id" value from the form equals empty , create  new data entry, else update the entry using ID
+    if (id === "" ) {
         Form.create(formData, function (err, doc) {
             if (err) { console.log('ERROR:', err); }
             console.log('CREATED DOCUMENT:', doc);
-            return res.send(doc);
+            return res.send(doc); //make sure you get ID back from the AJAX call, inspect the source code
         });
     } else {
+        
+        //else if the data existed in the database, update it
         Form.update({"_id": id}, formData, function(err, doc) {
             if (err) { console.log('ERROR:', err); }
             console.log(doc);
@@ -75,46 +73,6 @@ app.post('/', function(req, res) {
 
 });
 
-
-
-
-
-   
-
-//  Form.find({"_id":id}, function(err, foundData){
-     
-//     //  console.log("FOUND DATA",foundData); 
-//     var createID = foundData[0]._id.toString();
-//     console.log(createID, foundData);
-//     console.log(id);
-    
-//     console.log('createID TYPE:', typeof(createID));
-//     console.log('id TYPE:', typeof(id));
-    
-//     if(createID === id){
-//         console.log("exists")
-//     }else{
-//         console.log("does not exist")
-//     }
-    
-//  });
-
-
-//     var update = {
-//         "firstName":firstName
-//     }
-
-//  Form.update({}, update, {upsert: true}, function(err, upatedData) {
- 
-//  console.log(upatedData)
-//   // raw will contain updatedExisting and the inserted item _id (if applicable)
-
-     
-//  });
-
-
-
-// });
 //LISTEN
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("SERVER STARTED");
