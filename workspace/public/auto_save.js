@@ -8,7 +8,7 @@ $('form input').on('input', function() {
        
        // Runs evry 3 second  
         saveToDB();
-    }, 1000);
+    }, 3000);
 });
 
 
