@@ -1,18 +1,22 @@
 <% include ./partials/header%>
 
-<form class="contact-form" method="post" ID="form">
+<form class="form" method="post">
   
         <div class="row col-md-12">
+                  
                   <div class="col-md-5">
                     <img src="https://s32.postimg.org/64omj5gf9/chnia.jpg" class="img-responsive" id="sideImage1">
                   </div>
 
                   <div class="col-md-5">
                     <h3>Welcome</h3>
-
+                    
+                    <!--HIDDEN ID-->
+                    <input type="hidden" id="id" name="id" value="">
+                    
                     <label><b>First Name</b></label>
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="First Name" aria-describedby="basic-addon1" id="country" name="firstName" required>
+                      <input type="text" class="form-control" placeholder="First Name" aria-describedby="basic-addon1" id="c1" name="firstName" required>
                     </div>
 
                     <label><b>Last Name</b></label>
